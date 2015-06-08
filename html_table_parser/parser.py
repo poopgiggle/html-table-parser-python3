@@ -56,8 +56,8 @@ class HTMLTableParser(HTMLParser):
             self._current_row.append(final_cell)
             self._current_cell = []
         elif tag == 'tr':
-            self._current_table.append(self._current_row)
+            self._current_table.append(self._current_row) if len(self._current_row) != 0 else 0
             self._current_row = []
         elif tag == 'table':
-            self.tables.append(self._current_table)
+            self.tables.append(self._current_table) if len(self._current_table) != 0 else 0
             self._current_table = []
